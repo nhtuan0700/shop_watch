@@ -1,36 +1,34 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Login\LoginRequest;
-use App\Model\Role;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function showLoginForm()
+    public function loginForm()
     {
-        if (Auth::check() && Auth::user()->role->id != Role::CUSTOMER) {
-            return redirect(route('admin.index'));
+        if (Auth::check())
+        {
+            return redirect(route('index'));
         }
-        return view('admin.login');
+        return view('user.login.index');
     }
-
     public function login(LoginRequest $request)
     {
         $crendentials = $request->only('email', 'password');
         $bool = $request->has('remember') ? true : false;
         if (Auth::attempt($crendentials, $bool)) {
-            return redirect(route('admin.index'));
+            return redirect(route('index'));
         }
         return back()->with('alert-fail', 'Đăng nhập thất bại!');
     }
-
     public function logout()
     {
         Auth::logout();
-        return redirect(route('admin.login'));
+        return redirect(route('login'));
     }
 }
