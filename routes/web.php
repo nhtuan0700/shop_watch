@@ -113,4 +113,36 @@ Route::namespace('Admin')->group(function () {
 
 Route::namespace('User')->group(function () {
     Route::get('/', 'HomeController@index')->name('index');
+    Route::get('/login', 'LoginController@loginForm')->name('login');
+    Route::post('/login', 'LoginController@login');
+    Route::get('/signup', 'RegisterController@registerForm')->name('signup');
+    Route::post('/signup', 'RegisterController@register');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
+
+    Route::name('product.')->group(function () {
+        Route::prefix('product')->group(function () {
+            Route::get('/', 'ProductController@index')->name('index');
+            Route::get('/detail/{product?}', 'ProductController@detail')->name('detail');
+        });
+    });
+
+    Route::name('blog.')->group(function () {
+        Route::prefix('blog')->group(function () {
+            Route::get('/', 'BlogController@index')->name('index');
+            Route::get('/detail/{blog?}', 'BlogController@detail')->name('detail');
+        });
+    });
+
+    Route::name('cart.')->group(function () {
+        Route::prefix('cart')->group(function () {
+            Route::get('/', 'CartController@index')->name('index');
+            Route::get('/detail/{cart?}', 'CartController@detail')->name('detail');
+        });
+    });
+
+    Route::name('checkout.')->group(function () {
+        Route::prefix('checkout')->group(function () {
+            Route::get('/', 'CheckoutController@index')->name('index');
+        });
+    });
 });
