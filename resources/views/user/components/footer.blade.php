@@ -25,7 +25,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 mb-md--30">
+            <div class="col-lg-4 col-md-6 mb-md--30">
                 <div class="footer-widget">
                     <h3 class="widget-title">Information</h3>
                     <ul class="widget-menu">
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 mb-sm--30">
+            <div class="col-lg-4 col-md-6 mb-sm--30">
                 <div class="footer-widget">
                     <h3 class="widget-title">Extras</h3>
                     <ul class="widget-menu">
@@ -51,65 +51,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-widget">
-                    <h3 class="widget-title">Custom Products</h3>
-                    <div class="widget-product">
-                        <div class="product">
-                            <div class="product-img"><img src="user/img/products/11-450x450.jpg"
-                                                          alt="products"></div>
-                            <div class="product-content">
-                                <div class="product-rating"><span><i class="fa fa-star theme-star"></i><i
-                                            class="fa fa-star theme-star"></i><i
-                                            class="fa fa-star theme-star"></i><i
-                                            class="fa fa-star theme-star"></i><i class="fa fa-star"></i></span>
-                                </div>
-                                <h4 class="product-title"><a href="product-details.html" tabindex="0">Acer
-                                        Aspire E 15</a></h4>
-                                <div class="product-price-wrapper"><span class="money">$550.00</span><span
-                                        class="product-price-old"><span class="money">$700.00</span></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="product-img"><img src="user/img/products/11-450x450.jpg"
-                                                          alt="products"></div>
-                            <div class="product-content">
-                                <div class="product-rating"><span><i class="fa fa-star theme-star"></i><i
-                                            class="fa fa-star theme-star"></i><i
-                                            class="fa fa-star theme-star"></i><i
-                                            class="fa fa-star theme-star"></i><i class="fa fa-star"></i></span>
-                                </div>
-                                <h4 class="product-title"><a href="product-details.html" tabindex="0">Acer
-                                        Aspire E 15</a></h4>
-                                <div class="product-price-wrapper"><span class="money">$550.00</span><span
-                                        class="product-price-old"><span class="money">$700.00</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mb--40 mb-md--30">
-            <div class="col-12">
-                <ul class="footer-menu">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Online Store</a></li>
-                    <li><a href="">Promotion</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms Of Use</a></li>
-                    <li><a href="">Sitemap</a></li>
-                    <li><a href="">Support</a></li>
-                    <li><a href="">Contacts</a></li>
-                </ul>
-            </div>
         </div>
         <div class="row">
             <div class="col-12 text-center">
                 <p class="copyright-text">Copyright &copy; 2018 <a
-                        href="http://www.bootstrapmb.com">HasTech</a>.All Right Reserved.</p><img
-                    src="user/img/others/payment.png" alt="payment">
+                        href="http://www.bootstrapmb.com">HasTech</a>.All Right Reserved.</p>
             </div>
         </div>
     </div>

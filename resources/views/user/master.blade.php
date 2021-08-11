@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="meta description"><!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{ asset('user   /img/icon.png') }}"><!-- Title -->
+    <link rel="apple-touch-icon" href="{{ asset('user/img/icon.png') }}"><!-- Title -->
     <title>@yield('title')</title>
     <!-- ************************* CSS Files ************************* -->
     <!-- Toastr -->
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('user/css/elegent-icons.css') }}"><!-- All Plugins CSS css -->
     <link rel="stylesheet" href="{{ asset('user/css/plugins.css') }}"><!-- style css -->
     <link rel="stylesheet" href="{{ asset('user/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('user/css/custom.css') }}">
     <!-- modernizr JS    ============================================ -->
     <script src="{{ asset('user/js/vendor/modernizr-2.8.3.min.js') }}"></script>
     <!--[if lt IE 9]><script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -40,6 +41,7 @@
 <script src="{{ asset('user/js/ajax-mail.js') }}"></script><!-- Main JS -->
 <script src="{{ asset('user/js/main.js') }}"></script>
 <script src="{{ asset('admin/plugins/toastr/toastr.min.js') }}"></script>
+@yield('script')
 @php
     if (session('alert-success'))
     {

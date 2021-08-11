@@ -24,6 +24,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $attributes = [
+        'id_role' => Role::CUSTOMER
+    ];
+
     public function role()
     {
         return $this->belongsTo(Role::class, 'id_role', 'id');

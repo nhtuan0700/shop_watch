@@ -11,12 +11,12 @@ class LoginController extends Controller
 {
     public function loginForm()
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             return redirect(route('index'));
         }
         return view('user.login.index');
     }
+
     public function login(LoginRequest $request)
     {
         $crendentials = $request->only('email', 'password');
@@ -26,6 +26,7 @@ class LoginController extends Controller
         }
         return back()->with('alert-fail', 'Đăng nhập thất bại!');
     }
+
     public function logout()
     {
         Auth::logout();

@@ -122,6 +122,7 @@ Route::namespace('User')->group(function () {
     Route::name('product.')->group(function () {
         Route::prefix('product')->group(function () {
             Route::get('/', 'ProductController@index')->name('index');
+            Route::get('/search', 'ProductController@search')->name('search');
             Route::get('/detail/{id}', 'ProductController@detail')->name('detail');
         });
     });
@@ -137,6 +138,7 @@ Route::namespace('User')->group(function () {
         Route::prefix('cart')->group(function () {
             Route::get('/', 'CartController@index')->name('index');
             Route::get('/detail/{id}', 'CartController@detail')->name('detail');
+            Route::post('update/', 'CartController@update')->name('update');
         });
     });
 

@@ -25,6 +25,7 @@ class UserController extends Controller
     {
         $users = User::whereNotIn('id', [1])->orderBy('id', 'desc')->paginate($this->limit);
         $roles = Role::all();
+        // dd($users);
         return view('admin.user.list', compact('users', 'roles'));
     }
 
@@ -93,7 +94,7 @@ class UserController extends Controller
                 $query = $query->where($column, 'like', '%' . $value . '%');
             }
         }
-        $users = $query->orderBy('id', 'desc')->paginate($this->limit)->appends($columns);
+        $users = $query->whereNotIn('id', [1])->orderBy('id', 'desc')->paginate($this->limit)->appends($columns);
         return view('admin.user.list', compact('users', 'roles', 'request'));
     }
 

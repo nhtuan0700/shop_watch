@@ -48,7 +48,7 @@ class BlogController extends Controller
 
 	public function update(UpdateBlog $request, $id)
 	{
-		$data = $request->only('name', 'content');
+		$data = $request->only('title', 'content');
 		$blog = Blog::findOrFail($id);
 		if ($request->hasFile('image')) {
 			Storage::disk('public')->delete($blog->image);

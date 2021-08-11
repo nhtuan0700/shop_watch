@@ -1,6 +1,6 @@
 @extends('user.master')
 @section('title')
-    <Blog></Blog>
+    Blog
 @endsection
 @section('content')
     <div class="blog-area pt--40 pb--80 pt-md--30 pb-md--60">

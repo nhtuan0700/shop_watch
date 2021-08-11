@@ -15,19 +15,18 @@ class ProductController extends Controller
     protected $limit;
 
     public function __construct() {
-        $this->limit = Config::get('constants.limit_page');
+        $this->limit = 8;
     }
+
     public function index()
     {
         $products = Product::paginate($this->limit);
-        foreach ($products as $item)
-        {
-            $item['image_detail'] = json_decode($item->image_detail) ?? [];
-        }
-        $categories = Category::all();
-        $brands = Brand::all();
-        return view('user.product.index', compact('products', 'categories', 'brands'));
+        $categories = Category::where('status', true)->get();
+        $brands = Brand::where('status', true)->get();
+        $colors = Color::all();
+        return view('user.product.index', compact('products', 'categories', 'brands', 'colors'));
     }
+
     public function detail($id)
     {
         $product = Product::findOrFail($id);
@@ -36,5 +35,15 @@ class ProductController extends Controller
         $product['image_detail'] = json_decode($product->image_detail) ?? [];
         $colors = Color::all();
         return view('user.product.detail', compact('product', 'categories', 'brands', 'colors'));
+    }
+
+    public function search(Request $request)
+    {
+        $name = $request->q;
+        $categories = Category::where('status', true)->get();
+        $brands = Brand::where('status', true)->get();
+        $colors = Color::all();
+        $products = Product::where('name', 'like', "%$name%")->paginate($this->limit);
+        return view('user.product.index', compact('products', 'categories', 'brands', 'colors'));
     }
 }

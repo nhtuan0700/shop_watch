@@ -1,98 +1,28 @@
 <!-- Header Area Start -->
 <header class="header headery-style-1">
-    <div class="header-top header-top-1">
-        <div class="container">
-            <div class="row no-gutters align-items-center">
-                <div class="col-lg-8 d-flex align-items-center flex-column flex-lg-row">
-                    <ul class="social social-round mr--20">
-                        <li class="social__item"><a href="twitter.com" class="social__link"><i
-                                    class="fa fa-twitter"></i></a></li>
-                        <li class="social__item"><a href="plus.google.com" class="social__link"><i
-                                    class="fa fa-google-plus"></i></a></li>
-                        <li class="social__item"><a href="facebook.com" class="social__link"><i
-                                    class="fa fa-facebook"></i></a></li>
-                        <li class="social__item"><a href="youtube.com" class="social__link"><i
-                                    class="fa fa-youtube"></i></a></li>
-                        <li class="social__item"><a href="instagram.com" class="social__link"><i
-                                    class="fa fa-instagram"></i></a></li>
-                    </ul>
-                    <p class="header-text">Free shipping on all domestic orders with coupon code
-                        <span>“Watches2018”</span></p>
-                </div>
-                <div class="col-lg-4">
-                    <div class="header-top-nav d-flex justify-content-lg-end justify-content-center">
-                        <div class="language-selector header-top-nav__item">
-                            <div class="dropdown header-top__dropdown"><a class="dropdown-toggle"
-                                                                          id="languageID" data-toggle="dropdown" aria-haspopup="true"
-                                                                          aria-expanded="false"> EN-GB <i class="fa fa-angle-down"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="languageID"><a class="dropdown-item"
-                                                                                           href="#"><img src="{{ asset('user/img/header/1.jpg') }}" alt="English">English</a><a
-                                        class="dropdown-item" href="#"><img src="{{ asset('user/img/header/2.jpg') }}"
-                                                                            alt="Français">Français</a></div>
-                            </div>
-                        </div>
-                        <div class="currency-selector header-top-nav__item">
-                            <div class="dropdown header-top__dropdown"><a class="dropdown-toggle"
-                                                                          id="currencyID" data-toggle="dropdown" aria-haspopup="true"
-                                                                          aria-expanded="false"> USD <i class="fa fa-angle-down"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="currencyID"><a class="dropdown-item"
-                                                                                           href="#">&euro; Uro</a><a class="dropdown-item" href="#">&pound; Pound
-                                        Sterling</a><a class="dropdown-item" href="#">&dollar; Us Dollar</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-info header-top-nav__item">
-                            @if(!Auth::check())
-                                <div class="dropdown header-top__dropdown"><a class="dropdown-toggle" id="userID"
-                                                                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tài khoản
-                                         <i class="fa fa-angle-down"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="userID"><a class="dropdown-item"
-                                                                                           href="{{ route('signup') }}">Đăng ký</a><a class="dropdown-item"
-                                                                                                                                     href="{{ route('login') }}">Đăng nhập</a></div>
-                                </div>
-                            @else
-                                <div class="dropdown header-top__dropdown"><a class="dropdown-toggle" id="userID"
-                                                                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <i class="fa fa-angle-down"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="userID"><a class="dropdown-item"
-                                                                                           href="{{ route('logout') }}">Đăng xuất</a>  </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="header-middle header-top-1">
         <div class="container">
-            <div class="row no-gutters align-items-center">
-                <div class="col-md-5 col-sm-6 order-lg-1 order-2">
-                    <div class="contact-info"><img src="{{ asset('user/img/icons/icon_phone.png') }}" alt="Phone Icon">
-                        <p>Call us <br>Free Support: (012) 800 456 789</p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-12 order-lg-2 order-1 text-center"><a href="index.html"
-                                                                               class="logo-box mb-md--30"><img src="{{ asset('user/img/logo/logo.png') }}" alt="logo"></a></div>
-                <div class="col-lg-5 col-md-7 col-sm-6 order-lg-3 order-3">
+            <div class="row no-gutters align-items-center justify-content-between">
+                <div>
+                    <a href="{{ route('index') }}" class="logo-box mb-md--30"><img src="{{ asset('user/img/logo/logo.png') }}" alt="logo"></a></div>
+                <div>
                     <div class="header-toolbar">
                         <div class="search-form-wrapper search-hide">
-                            <form action="#" class="search-form"><input type="text" name="search" id="search"
-                                                                        class="search-form__input" placeholder="Search entire store here.."><button
-                                    type="submit" class="search-form__submit"><i
-                                        class="icon_search"></i></button></form>
+                            <form action="{{ route('product.search') }}" class="search-form">
+                                <input type="text" name="q" id="search" class="search-form__input" 
+                                    placeholder="Tên sản phẩm.." style="width: initial">
+                                <button type="submit" class="search-form__submit"><i
+                                        class="icon_search"></i></button>
+                            </form>
                         </div>
                         <ul class="header-toolbar-icons">
                             <li class="search-box"><a href="#" class="bordered-icon search-btn"
                                                       aria-expanded="false"><i class="icon_search"></i></a></li>
-                            <li class="wishlist-icon"><a href="wishlist.html" class="bordered-icon"><i
-                                        class="fa fa-heart"></i></a></li>
                             <li class="mini-cart-icon">
                                 <div class="mini-cart mini-cart--1"><a
                                         class="mini-cart__dropdown-toggle bordered-icon" id="cartDropdown"><span
                                             class="mini-cart__count">0</span><i
-                                            class="icon_cart_alt mini-cart__icon"></i><span
-                                            class="mini-cart__ammount">80.00 <i
-                                                class="fa fa-angle-down"></i></span></a>
+                                            class="icon_cart_alt mini-cart__icon"></i></a>
                                     <div class="mini-cart__dropdown-menu">
                                         <div class="mini-cart__content" id="miniCart">
                                             <div class="mini-cart__item">
@@ -149,6 +79,23 @@
                                 </div>
                             </li>
                         </ul>
+                        <div class="user-info header-top-nav__item d-flex align-items-center">
+                            @if(!Auth::check())
+                                <div class="dropdown header-top__dropdown"><a class="dropdown-toggle" id="userID"
+                                                                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tài khoản
+                                         <i class="fa fa-angle-down"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="userID"><a class="dropdown-item"
+                                                                                           href="{{ route('signup') }}">Đăng ký</a><a class="dropdown-item"
+                                                                                                                                     href="{{ route('login') }}">Đăng nhập</a></div>
+                                </div>
+                            @else
+                                <div class="dropdown header-top__dropdown"><a class="dropdown-toggle" id="userID"
+                                                                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <i class="fa fa-angle-down"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="userID"><a class="dropdown-item"
+                                                                                           href="{{ route('logout') }}">Đăng xuất</a>  </div>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

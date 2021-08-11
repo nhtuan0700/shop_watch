@@ -15,6 +15,7 @@ class RegisterController extends Controller
     {
         return view('user.signup.index');
     }
+
     public function register(RegisterRequest $request)
     {
         $data = $request->only(['name', 'tel', 'email', 'password']);
@@ -22,6 +23,6 @@ class RegisterController extends Controller
         User::create($data);
         $crendentials = $request->only('email', 'password');
         Auth::attempt($crendentials);
-        return redirect(route('index'))->with('alert-success', 'Register success!');
+        return redirect(route('index'))->with('alert-success', 'Đăng kí thành công!');
     }
 }

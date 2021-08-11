@@ -11,19 +11,13 @@ use Illuminate\Support\Facades\Config;
 
 class HomeController extends Controller
 {
-    protected $limit;
-
-    public function __construct() {
-        $this->limit = Config::get('constants.limit_page');
-    }
     public function index()
     {
-        $products = Product::paginate($this->limit);
+        $product_sale = Product::all()->random(5);
+        $product_new = Product::all()->random(5);
+        $product_best = Product::all()->random(5);
+        $product_intro = Product::all()->random(1)->first();
         $brands = Brand::all();
-        foreach ($products as $item)
-        {
-            $item['image_detail'] = json_decode($item->image_detail) ?? [];
-        }
-        return view('user.home.index', compact('products','brands'));
+        return view('user.home.index', compact('product_sale', 'product_new', 'product_best', 'product_intro', 'brands'));
     }
 }
