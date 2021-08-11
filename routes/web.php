@@ -122,21 +122,21 @@ Route::namespace('User')->group(function () {
     Route::name('product.')->group(function () {
         Route::prefix('product')->group(function () {
             Route::get('/', 'ProductController@index')->name('index');
-            Route::get('/detail/{product?}', 'ProductController@detail')->name('detail');
+            Route::get('/detail/{id}', 'ProductController@detail')->name('detail');
         });
     });
 
     Route::name('blog.')->group(function () {
         Route::prefix('blog')->group(function () {
             Route::get('/', 'BlogController@index')->name('index');
-            Route::get('/detail/{blog?}', 'BlogController@detail')->name('detail');
+            Route::get('/detail/{id}', 'BlogController@detail')->name('detail');
         });
     });
 
     Route::name('cart.')->group(function () {
         Route::prefix('cart')->group(function () {
             Route::get('/', 'CartController@index')->name('index');
-            Route::get('/detail/{cart?}', 'CartController@detail')->name('detail');
+            Route::get('/detail/{id}', 'CartController@detail')->name('detail');
         });
     });
 
