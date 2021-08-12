@@ -6,7 +6,7 @@
     <!-- Slider area Start -->
     <div class="slider-area">
         <div class="homepage-slider">
-           
+
             <div class="single-slider content-v-center"
                  style="background-image: url({{ asset('user/img/slider/slider1-mirora1-1920x634.jpg') }})">
                 <div class="container">
@@ -16,7 +16,7 @@
                                 <h1 data-animation="fadeInDown" data-duration=".8s" data-delay=".2s">
                                     {{ $product_intro->name }}
                                 </h1>
-                               
+
                                 <p class="mb--50 mb-sm--20" data-animation="fadeInDown" data-duration=".8s"
                                    data-delay=".2s"><strong>{{ number_format($product_intro->price) }} đ</strong></p>
                                 <div class="slide-btn-group" data-animation="fadeInUp" data-duration="1s"
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <div class="single-slider content-v-center"
                  style="background-image: url({{ asset('user/img/slider/slider2-mirora1-1920x634.jpg') }})">
                 <div class="container">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <div class="single-slider content-v-center"
                  style="background-image: url({{ asset('user/img/slider/slider2-mirora1-1920x634.jpg') }})">
                 <div class="container">
@@ -186,70 +186,28 @@
             <div class="row">
                 <div class="col-12">
                     <div class="blog-carousel nav-top slick-item-gutter">
-                        <article class="blog"><a href="blog-details-image.html" class="blog__thumb"><img
-                                    src="user/img/blog/post1-370x230.jpg" alt="Blog"></a>
-                            <div class="blog__content">
-                                <div class="blog__meta">
-                                    <p class="blog__author">Post By: <a href="blog.html">HasTech</a></p>
-                                    <p class="blog__date"><a href="blog.html">20 Oct 2018</a></p>
+                        @foreach($blogs as $item_blog)
+                            <article class="blog">
+                                <a href="{{ route('blog.detail', ['id'=>$item_blog->id]) }}" class="blog__thumb">
+                                    <img src="{{ asset('storage/'.$item_blog->image) }}" alt="Blog">
+                                </a>
+                                <div class="blog__content">
+                                    <div class="blog__meta">
+                                        <p class="blog__author">Post By: <a href="blog.html">HasTech</a></p>
+                                        <p class="blog__date"><a href="{{ route('blog.detail', ['id'=>$item->id]) }}">{{ $item_blog->created_at }}</a></p>
+                                    </div>
+                                    <h3 class="blog__title">
+                                        <a href="{{ route('blog.detail', ['id'=>$item_blog->id]) }}">{{ $item_blog->title }}</a>
+                                    </h3>
+                                    <div class="blog__text">
+                                        <p>{!! \Illuminate\Support\Str::limit($item_blog->content,40, $end='...') !!}</p>
+                                        <a
+                                            class="read-more" href="{{ route('blog.detail', ['id'=>$item_blog->id]) }}">Read More</a>
+                                    </div>
                                 </div>
-                                <h3 class="blog__title"><a href="blog-details-image.html">Mollis aliquet ante,
-                                        suscipit non eget nulla libero, vestibulum condimentum.</a></h3>
-                                <div class="blog__text">
-                                    <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram,
-                                        anteposuerit litterarum formas humanitatis per seacula.</p><a
-                                        class="read-more" href="blog-details-image.html">Read More</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="blog"><a href="blog-details-image.html" class="blog__thumb"><img
-                                    src="user/img/blog/post2-370x230.jpg" alt="Blog"></a>
-                            <div class="blog__content">
-                                <div class="blog__meta">
-                                    <p class="blog__author">Post By: <a href="blog.html">HasTech</a></p>
-                                    <p class="blog__date"><a href="blog.html">20 Oct 2018</a></p>
-                                </div>
-                                <h3 class="blog__title"><a href="blog-details-image.html">Mollis aliquet ante,
-                                        suscipit non eget nulla libero, vestibulum condimentum.</a></h3>
-                                <div class="blog__text">
-                                    <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram,
-                                        anteposuerit litterarum formas humanitatis per seacula.</p><a
-                                        class="read-more" href="blog-details-image.html">Read More</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="blog"><a href="blog-details-image.html" class="blog__thumb"><img
-                                    src="user/img/blog/post3-370x230.jpg" alt="Blog"></a>
-                            <div class="blog__content">
-                                <div class="blog__meta">
-                                    <p class="blog__author">Post By: <a href="blog.html">HasTech</a></p>
-                                    <p class="blog__date"><a href="blog.html">20 Oct 2018</a></p>
-                                </div>
-                                <h3 class="blog__title"><a href="blog-details-image.html">Mollis aliquet ante,
-                                        suscipit non eget nulla libero, vestibulum condimentum.</a></h3>
-                                <div class="blog__text">
-                                    <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram,
-                                        anteposuerit litterarum formas humanitatis per seacula.</p><a
-                                        class="read-more" href="blog-details-image.html">Read More</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="blog"><a href="blog-details-image.html" class="blog__thumb"><img
-                                    src="assets/img/blog/post4-370x230.jpg" alt="Blog"></a>
-                            <div class="blog__content">
-                                <div class="blog__meta">
-                                    <p class="blog__author">Post By: <a href="blog.html">HasTech</a></p>
-                                    <p class="blog__date"><a href="blog.html">20 Oct 2018</a></p>
-                                </div>
-                                <h3 class="blog__title"><a href="blog-details-image.html">Mollis aliquet ante,
-                                        suscipit non eget nulla libero, vestibulum condimentum.</a></h3>
-                                <div class="blog__text">
-                                    <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram,
-                                        anteposuerit litterarum formas humanitatis per seacula.</p><a
-                                        class="read-more" href="blog-details-image.html">Read More</a>
-                                </div>
-                            </div>
-                        </article>
+                            </article>
+                        @endforeach
+
                     </div>
                 </div>
             </div>
