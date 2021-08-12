@@ -61,11 +61,11 @@ Bài viết
             </table>
             <div class="d-flex mt-4 justify-content-between">
               <div>
-                <div class="dataTables_info">Total: {{ $categories->total() }} entries</div>
+                <div class="dataTables_info">Total: {{ $blogs->total() }} entries</div>
               </div>
               <div>
                 <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                  {{ $categories->links() }}
+                  {{ $blogs->links() }}
                 </div>
               </div>
             </div>

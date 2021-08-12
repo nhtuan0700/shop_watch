@@ -28,3 +28,7 @@
   max-height: 54px;
   overflow: hidden
 }
+
+.quantity-input {
+  width: 7rem;
+}

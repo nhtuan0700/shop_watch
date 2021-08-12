@@ -20,7 +20,7 @@ Route::namespace('Admin')->group(function () {
             Route::post('login', 'LoginController@login');
             Route::get('logout', 'LoginController@logout')->name('logout');
 
-            Route::middleware(['auth', 'auth_admin'])->group(function () {
+            Route::middleware(['auth', 'auth_admin', 'checkStatus'])->group(function () {
                 Route::get('home', 'HomeController@index')->name('index');
 
                 Route::name('permission.')->group(function () {
@@ -112,51 +112,53 @@ Route::namespace('Admin')->group(function () {
 });
 
 Route::namespace('User')->group(function () {
-    Route::get('/', 'HomeController@index')->name('index');
-    Route::get('/login', 'LoginController@loginForm')->name('login');
-    Route::post('/login', 'LoginController@login');
-    Route::get('/signup', 'RegisterController@registerForm')->name('signup');
-    Route::post('/signup', 'RegisterController@register');
-    Route::get('/logout', 'LoginController@logout')->name('logout');
-
-    Route::name('product.')->group(function () {
-        Route::prefix('product')->group(function () {
-            Route::get('/', 'ProductController@index')->name('index');
-            Route::get('/search', 'ProductController@search')->name('search');
-            Route::get('/detail/{id}', 'ProductController@detail')->name('detail');
-        });
-    });
-
-    Route::name('blog.')->group(function () {
-        Route::prefix('blog')->group(function () {
-            Route::get('/', 'BlogController@index')->name('index');
-            Route::get('/detail/{id}', 'BlogController@detail')->name('detail');
-        });
-    });
-
-    Route::name('cart.')->group(function () {
-        Route::prefix('cart')->group(function () {
-            Route::get('/', 'CartController@index')->name('index');
-            Route::get('/detail/{id}', 'CartController@detail')->name('detail');
-            Route::post('add/{id}', 'CartController@add')->name('add');
-            Route::post('update', 'CartController@update')->name('update');
-        });
-    });
-
-    Route::name('checkout.')->group(function () {
-        Route::prefix('checkout')->group(function () {
-            Route::get('/', 'CheckoutController@index')->name('index');
-        });
-    });
-
-    Route::middleware('auth')->group(function (){
-        Route::name('profile.')->group(function (){
-            Route::prefix('profile')->group(function (){
-                Route::get('/info', 'UserController@showInfo')->name('info');
-                Route::put('/info', 'UserController@updateInfo');
-                Route::get('/change-password', 'UserController@showFormChangePassword')->name('update_password');
-                Route::post('/change-password', 'UserController@updatePassword');
+    Route::middleware('checkStatus')->group(function() {
+        Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/login', 'LoginController@loginForm')->name('login');
+        Route::post('/login', 'LoginController@login');
+        Route::get('/signup', 'RegisterController@registerForm')->name('signup');
+        Route::post('/signup', 'RegisterController@register');
+        Route::get('/logout', 'LoginController@logout')->name('logout');
+    
+        Route::name('product.')->group(function () {
+            Route::prefix('product')->group(function () {
+                Route::get('/', 'ProductController@index')->name('index');
+                Route::get('/search', 'ProductController@search')->name('search');
+                Route::get('/detail/{id}', 'ProductController@detail')->name('detail');
             });
         });
+    
+        Route::name('blog.')->group(function () {
+            Route::prefix('blog')->group(function () {
+                Route::get('/', 'BlogController@index')->name('index');
+                Route::get('/detail/{id}', 'BlogController@detail')->name('detail');
+            });
+        });
+    
+        Route::name('cart.')->group(function () {
+            Route::prefix('cart')->group(function () {
+                Route::get('/', 'CartController@index')->name('index');
+                Route::get('/detail/{id}', 'CartController@detail')->name('detail');
+                Route::post('add/{id}', 'CartController@add')->name('add');
+                Route::post('update', 'CartController@update')->name('update');
+            });
+        });
+    
+        Route::name('checkout.')->group(function () {
+            Route::prefix('checkout')->group(function () {
+                Route::get('/', 'CheckoutController@index')->name('index');
+            });
+        });
+    
+        Route::middleware('auth')->group(function (){
+            Route::name('profile.')->group(function (){
+                Route::prefix('profile')->group(function (){
+                    Route::get('/info', 'UserController@showInfo')->name('info');
+                    Route::put('/info', 'UserController@updateInfo');
+                    Route::get('/change-password', 'UserController@showFormChangePassword')->name('update_password');
+                    Route::post('/change-password', 'UserController@updatePassword');
+                });
+            });
+        }); 
     });
 });

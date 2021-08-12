@@ -53,7 +53,7 @@
                                                         <td class="cart-product-price"><strong>{{ number_format($item->price) }} đ</strong></td>
                                                         <td>
                                                             <div class="quantity"><input type="number"
-                                                                class="quantity-input" name="qty" value="{{ $item->qty }}"
+                                                                class="quantity-input" name="qty" value="{{ intval($item->qty) }}"
                                                                 min="1"></div>
                                                         </td>
                                                         <td class="cart-product-price">
