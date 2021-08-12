@@ -147,4 +147,15 @@ Route::namespace('User')->group(function () {
             Route::get('/', 'CheckoutController@index')->name('index');
         });
     });
+
+    Route::middleware('auth')->group(function (){
+        Route::name('profile.')->group(function (){
+            Route::prefix('profile')->group(function (){
+                Route::get('/info', 'UserController@showInfo')->name('info');
+                Route::put('/info', 'UserController@updateInfo');
+                Route::get('/change-password', 'UserController@showFormChangePassword')->name('update_password');
+                Route::post('/change-password', 'UserController@updatePassword');
+            });
+        });
+    });
 });

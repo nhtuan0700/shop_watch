@@ -156,7 +156,7 @@ Tài khoản người dùng
       strElmOptions = getOptionProvince(result)
       $('#province').html(strElmOptions)
       id_province = "{{ old('id_province') }}"
-      if (id_province) 
+      if (id_province)
       {
         $(`#province > option[value=${id_province}]`).attr("selected", "selected")
         loadDistrict(id_province);

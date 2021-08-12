@@ -89,11 +89,14 @@
                                                                                                                                      href="{{ route('login') }}">Đăng nhập</a></div>
                                 </div>
                             @else
-                                <div class="dropdown header-top__dropdown"><a class="dropdown-toggle" id="userID"
-                                                                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <i class="fa fa-angle-down"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="userID"><a class="dropdown-item"
-                                                                                           href="{{ route('logout') }}">Đăng xuất</a>  </div>
+                            <div class="dropdown header-top__dropdown"><a class="dropdown-toggle" id="userID"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <i class="fa fa-angle-down"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="userID">
+                                    <a class="dropdown-item" href="{{ route('profile.update_password') }}">Thay đổi mật khẩu</a>
+                                    <a class="dropdown-item" href="{{ route('profile.info') }}">Cập nhật thông tin</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
                                 </div>
+                            </div>
                             @endif
                         </div>
                     </div>

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('user/css/plugins.css') }}"><!-- style css -->
     <link rel="stylesheet" href="{{ asset('user/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('user/css/custom.css') }}">
+    @yield('link_css')
     <!-- modernizr JS    ============================================ -->
     <script src="{{ asset('user/js/vendor/modernizr-2.8.3.min.js') }}"></script>
     <!--[if lt IE 9]><script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -52,6 +53,7 @@
       echo '<script>toastr.error("'.session('alert-fail').'")</script>';
     }
 @endphp
+@yield('script')
 </body>
 
 </html>
