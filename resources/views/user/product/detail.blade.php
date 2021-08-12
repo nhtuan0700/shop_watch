@@ -88,7 +88,7 @@
                                         @method('post')
                                         @csrf
                                         <div class="product-details-action-top d-flex align-items-center mb--20">
-                                            <div class="quantity" style="width: 18rem"><span>Số lượng đặt:</span>
+                                            <div class="quantity" style="width: 20rem"><span>Số lượng đặt:</span>
                                                     <input type="number" class="quantity-input" name="qty" id="pro_qty" value="1" min="1">
                                                 </div>
                                                 <button class="btn btn-medium btn-style-2 add-to-cart">Thêm vào giỏ</button>

@@ -24,13 +24,14 @@ class CartController extends Controller
         $name_color = Color::find($id_color)->name;
         $cartItem = Cart::content()->where('id', $product->id)->where('options.id_color', $id_color)->first();
         $qty = $request->qty;
+        if ($qty > $product->getQty($id_color)) {
+            return back()->with('alert-fail', 'Sản phẩm vượt quá số lượt cho phép!');
+        }
         if (!$cartItem) {
             if ($product->getQty($id_color) == 0) {
                 return back()->with('alert-fail', 'Sản phẩm đã hết!');
             }
-            Cart::add($product, 1, ['id_color' => $id_color, 'name_color' => $name_color])->associate('App\Model\Product');
-        } elseif ($cartItem->qty + 1 > $product->getQty($id_color)) {
-            return back()->with('alert-fail', 'Sản phẩm vượt quá số lượt cho phép!');
+            Cart::add($product, $qty, ['id_color' => $id_color, 'name_color' => $name_color])->associate('App\Model\Product');
         } else {
             Cart::update($cartItem->rowId, $qty)->associate('App\Model\Product');
         }
