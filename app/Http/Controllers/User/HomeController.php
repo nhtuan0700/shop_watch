@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Model\Blog;
 use App\Model\Brand;
 use App\Model\Category;
 use App\Model\Product;
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $product_best = Product::all()->random(5);
         $product_intro = Product::all()->random(1)->first();
         $brands = Brand::all();
-        return view('user.home.index', compact('product_sale', 'product_new', 'product_best', 'product_intro', 'brands'));
+        $blogs = Blog::paginate(3);
+        return view('user.home.index', compact('product_sale', 'product_new', 'product_best', 'product_intro', 'brands','blogs'));
     }
 }
