@@ -43,22 +43,6 @@
                                                 <div class="form__group @error('email') has-error @enderror">
                                                     <label for="user_email" class="form__label">Email Address</label>
                                                     <input type="email" name="user_email" id="user_email" class="form__input form__input--2" disabled value="{{ $user->email }}">
-                                                    @error('email')
-                                                    <div class="text-danger">
-                                                        {{ $message }}
-                                                    </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form__group @error('address') has-error @enderror">
-                                                    <label for="account_lname" class="form__label">Địa chỉ</label>
-                                                    <input type="text" name="address" id="account_lname" class="form__input form__input--2" value="{{ $user->address }}">
-                                                    @error('address')
-                                                    <div class="text-danger">
-                                                        {{ $message }}
-                                                    </div>
-                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -87,6 +71,21 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="form-row mb--20">
+                                            <div class="col-md-6">
+                                                <div class="form__group @error('address') has-error @enderror">
+                                                    <label for="account_lname" class="form__label">Địa chỉ</label>
+                                                    <input type="text" name="address" id="account_lname" class="form__input form__input--2" value="{{ $user->address }}">
+                                                    @error('address')
+                                                    <div class="text-danger">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="form-row">
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-medium btn-style-2">Lưu</button>

@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 order-lg-2 mb-md--30">
-                    <div class="shop-product-wrap row no-gutters grid gridview-4">
+                    <div class="shop-product-wrap row no-gutters grid gridview-3">
                         @foreach($products as $item)
                             <div class="col-xl-3 col-lg-4 col-md-6 col-12">
                                 <div class="mirora-product mb-md--10">

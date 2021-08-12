@@ -17,14 +17,13 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::paginate($this->limit);
+        $blogs = Blog::orderby('created_at', 'desc')->paginate($this->limit);
         return view('user.blog.index',compact('blogs'));
     }
 
     public function detail($id)
     {
-        $blogs = Blog::paginate(3);
         $blog = Blog::findOrFail($id);
-        return view('user.blog.detail',compact('blog','blogs'));
+        return view('user.blog.detail',compact('blog'));
     }
 }

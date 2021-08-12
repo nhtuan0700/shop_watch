@@ -19,7 +19,7 @@ class HomeController extends Controller
         $product_best = Product::all()->random(5);
         $product_intro = Product::all()->random(1)->first();
         $brands = Brand::all();
-        $blogs = Blog::paginate(3);
+        $blogs = Blog::orderby('created_at', 'desc')->take(3)->get();
         return view('user.home.index', compact('product_sale', 'product_new', 'product_best', 'product_intro', 'brands','blogs'));
     }
 }

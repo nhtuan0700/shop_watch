@@ -186,23 +186,21 @@
             <div class="row">
                 <div class="col-12">
                     <div class="blog-carousel nav-top slick-item-gutter">
-                        @foreach($blogs as $item_blog)
+                        @foreach($blogs as $item)
                             <article class="blog">
-                                <a href="{{ route('blog.detail', ['id'=>$item_blog->id]) }}" class="blog__thumb">
-                                    <img src="{{ asset('storage/'.$item_blog->image) }}" alt="Blog">
+                                <a href="{{ route('blog.detail', ['id'=>$item->id]) }}" class="blog__thumb">
+                                    <img src="{{ asset('storage/'.$item->image) }}" alt="Blog">
                                 </a>
                                 <div class="blog__content">
                                     <div class="blog__meta">
-                                        <p class="blog__author">Post By: <a href="blog.html">HasTech</a></p>
-                                        <p class="blog__date"><a href="{{ route('blog.detail', ['id'=>$item->id]) }}">{{ $item_blog->created_at }}</a></p>
+                                        <p class="blog__date"><a href="{{ route('blog.detail', ['id'=>$item->id]) }}">{{ $item->created_at }}</a></p>
                                     </div>
                                     <h3 class="blog__title">
-                                        <a href="{{ route('blog.detail', ['id'=>$item_blog->id]) }}">{{ $item_blog->title }}</a>
+                                        <a href="{{ route('blog.detail', ['id'=>$item->id]) }}">{{ $item->title }}</a>
                                     </h3>
                                     <div class="blog__text">
-                                        <p>{!! \Illuminate\Support\Str::limit($item_blog->content,40, $end='...') !!}</p>
-                                        <a
-                                            class="read-more" href="{{ route('blog.detail', ['id'=>$item_blog->id]) }}">Read More</a>
+                                        <p class="intro">{{ strip_tags($item->content) }}</p>
+                                        <a class="read-more" href="{{ route('blog.detail', ['id'=>$item->id]) }}">Đọc tiếp</a>
                                     </div>
                                 </div>
                             </article>

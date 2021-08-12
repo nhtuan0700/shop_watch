@@ -33,7 +33,7 @@ Bài viết
                 <col span="1" style="width: 30%;">
                 <col span="1" style="width: 15%;">
                 <col span="1" style="width: 15%;">
-             </colgroup>
+              </colgroup>
               <thead>
                 <tr>
                   <th scope="col">ID</th>
@@ -59,6 +59,15 @@ Bài viết
                 @endforeach
               </tbody>
             </table>
+            <div class="d-flex mt-4 justify-content-between">
+              <div>
+                <div class="dataTables_info">Total: {{ $categories->total() }} entries</div>
+              </div>
+              <div>
+                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                  {{ $categories->links() }}
+                </div>
+              </div>
             </div>
           </div>
         </div>

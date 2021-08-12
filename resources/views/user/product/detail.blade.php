@@ -69,7 +69,7 @@
                                     </div>
                                 <div class="mt-3">
                                     <label><sup>*</sup>Màu</label>
-                                    <select name="id_color" id="id_color" class="product-color">
+                                    <select name="id_color" id="id_color" class="product-color" form="product-cart">
                                         @foreach ($product->colors as $item)
                                             <option value="{{ $item->id_color }}" 
                                                 data-price="{{ $item->product->price + $item->price_plus }}"
@@ -84,12 +84,14 @@
                                     Số lượng còn: <span id="product-qty"></span> 
                                 </p>
                                 <div class="product-details-action-wrapper mb--20">
-                                    <form action="{{ route('cart.update') }}" method="post">
+                                    <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="post" id="product-cart">
+                                        @method('post')
+                                        @csrf
                                         <div class="product-details-action-top d-flex align-items-center mb--20">
                                             <div class="quantity" style="width: 18rem"><span>Số lượng đặt:</span>
                                                     <input type="number" class="quantity-input" name="qty" id="pro_qty" value="1" min="1">
                                                 </div>
-                                                <button type="button" class="btn btn-medium btn-style-2 add-to-cart">Add To Cart</button>
+                                                <button class="btn btn-medium btn-style-2 add-to-cart">Add To Cart</button>
                                             </div>
                                         </div>
                                     </form>

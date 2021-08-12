@@ -8,6 +8,7 @@
     <meta name="description" content="meta description"><!-- Favicons -->
     <link rel="apple-touch-icon" href="{{ asset('user/img/icon.png') }}"><!-- Title -->
     <title>@yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- ************************* CSS Files ************************* -->
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('admin/plugins/toastr/toastr.min.css') }}">
@@ -53,7 +54,6 @@
       echo '<script>toastr.error("'.session('alert-fail').'")</script>';
     }
 @endphp
-@yield('script')
 </body>
 
 </html>

@@ -15,7 +15,7 @@ class ProductController extends Controller
     protected $limit;
 
     public function __construct() {
-        $this->limit = 8;
+        $this->limit = 9;
     }
 
     public function index()

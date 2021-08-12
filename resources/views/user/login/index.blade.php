@@ -30,12 +30,15 @@
                                 </div>
                                 @enderror
                             </div>
-                            <div class="form__group d-flex align-items-center"><button type="submit"
-                                                                                       class="btn btn-5 btn-style-1 color-1">Đăng nhập</button>
-                                <div class="custom-checkbox ml--20"><input type="checkbox" name="sessionStore"
-                                                                           id="sessionStore" class="form__checkbox"><label for="sessionStore"
-                                                                                                                           class="form__checkbox--label">Remember me</label></div>
-                            </div><a href="" class="forgot-pass">Quên mật khẩu ?</a>
+                            <div class="form__group">
+                                <div class="">
+                                    <input type="checkbox" name="sessionStore" id="sessionStore" class="form__checkbox">
+                                    <label for="sessionStore" class="form__checkbox--label">Nhớ tài khoản</label>
+                                </div>
+                                <button type="submit" class="btn btn-5 btn-style-1 color-1">Đăng nhập</button>
+                               
+                            </div>
+                            <a href="" class="forgot-pass">Quên mật khẩu ?</a>
                         </form>
                     </div>
                 </div>

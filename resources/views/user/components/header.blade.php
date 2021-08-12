@@ -21,59 +21,35 @@
                             <li class="mini-cart-icon">
                                 <div class="mini-cart mini-cart--1"><a
                                         class="mini-cart__dropdown-toggle bordered-icon" id="cartDropdown"><span
-                                            class="mini-cart__count">0</span><i
+                                            class="mini-cart__count">{{ Cart::content()->count() }}</span><i
                                             class="icon_cart_alt mini-cart__icon"></i></a>
                                     <div class="mini-cart__dropdown-menu">
                                         <div class="mini-cart__content" id="miniCart">
                                             <div class="mini-cart__item">
+                                                @foreach (Cart::content() as $item)
                                                 <div class="mini-cart__item--single">
                                                     <div class="mini-cart__item--image"><img
-                                                            src="{{ asset('assets/img/products/1-1-450x450.jpg') }}"
+                                                            src="{{ asset('storage/'. $item->model->image) }}"
                                                             alt="product"></div>
                                                     <div class="mini-cart__item--content">
                                                         <h4 class="mini-cart__item--name"><a
-                                                                href="product-details.html">Dell Inspiron 24</a>
+                                                                href="{{ route('product.detail', ['id' => $item->id]) }}">{{ $item->model->name }}</a>
                                                         </h4>
-                                                        <p class="mini-cart__item--quantity">x1</p>
-                                                        <p class="mini-cart__item--price">$100.00</p>
-                                                    </div><a class="mini-cart__item--remove" href=""><i
-                                                            class="icon_close"></i></a>
+                                                        <p class="mini-cart__item--quantity">x{{ $item->qty }}</p>
+                                                        <p class="mini-cart__item--price">{{ number_format($item->price * $item->qty) }} đ</p>
+                                                    </div>
                                                 </div>
-                                                <div class="mini-cart__item--single">
-                                                    <div class="mini-cart__item--image"><img
-                                                            src="{{ asset('user/img/products/2-2-450x450.jpg') }}"
-                                                            alt="product"></div>
-                                                    <div class="mini-cart__item--content">
-                                                        <h4 class="mini-cart__item--name"><a
-                                                                href="product-details.html">Acer Aspire AIO
-                                                                <br>-<small>Color Swatch Black</small></a></h4>
-                                                        <p class="mini-cart__item--quantity">x1</p>
-                                                        <p class="mini-cart__item--price">$100.00</p>
-                                                    </div><a class="mini-cart__item--remove" href=""><i
-                                                            class="icon_close"></i></a>
-                                                </div>
+                                                @endforeach
                                             </div>
                                             <div class="mini-cart__calculation">
-                                                <p><span class="mini-cart__calculation--item">Sub-Total
+                                                <p><span class="mini-cart__calculation--item">Tổng tiền
                                                                 :</span><span
-                                                        class="mini-cart__calculation--ammount">$1,070.00</span>
-                                                </p>
-                                                <p><span class="mini-cart__calculation--item">Eco Tax (-2.00)
-                                                                :</span><span
-                                                        class="mini-cart__calculation--ammount">$4.00</span></p>
-                                                <p><span class="mini-cart__calculation--item">Eco VAT (20%)
-                                                                :</span><span
-                                                        class="mini-cart__calculation--ammount">$214.00</span>
-                                                </p>
-                                                <p><span class="mini-cart__calculation--item">Eco Total
-                                                                :</span><span
-                                                        class="mini-cart__calculation--ammount">$1,288.00</span>
+                                                        class="mini-cart__calculation--ammount">{{ number_format(Cart::total()) }} đ</span>
                                                 </p>
                                             </div>
-                                            <div class="mini-cart__btn"><a href="cart.html"
-                                                                           class="btn btn-fullwidth btn-style-1">View Cart</a><a
-                                                    href="checkout.html"
-                                                    class="btn btn-fullwidth btn-style-1">Checkout</a></div>
+                                            <div class="mini-cart__btn">
+                                                <a href="{{ route('cart.index') }}" class="btn btn-fullwidth btn-style-1">Đến giỏ hàng</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +90,7 @@
                             </li>
                             <li class="mainmenu__item"><a href="{{ route('product.index') }}" class="mainmenu__link">Sản phẩm</a>
                             </li>
-                            <li class="mainmenu__item"><a href="{{ route('blog.index') }}" class="mainmenu__link">Blog</a>
+                            <li class="mainmenu__item"><a href="{{ route('blog.index') }}" class="mainmenu__link">Bài viết</a>
                             </li>
                             <li class="mainmenu__item menu-item-has-children has-children"><a href="#"
                                                                                               class="mainmenu__link">Trang</a>

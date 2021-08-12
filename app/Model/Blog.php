@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
@@ -11,5 +12,10 @@ class Blog extends Model
     ];
 
     protected $table = 'blog';
+
+    public function getCreatedAtAttribute($date)
+    {
+        return Carbon::parse($date)->format('d/m/Y H:i:s');;
+    }
 }
     

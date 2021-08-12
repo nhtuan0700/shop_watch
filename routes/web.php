@@ -138,7 +138,8 @@ Route::namespace('User')->group(function () {
         Route::prefix('cart')->group(function () {
             Route::get('/', 'CartController@index')->name('index');
             Route::get('/detail/{id}', 'CartController@detail')->name('detail');
-            Route::post('update/', 'CartController@update')->name('update');
+            Route::post('add/{id}', 'CartController@add')->name('add');
+            Route::post('update', 'CartController@update')->name('update');
         });
     });
 

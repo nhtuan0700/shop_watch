@@ -19,13 +19,15 @@
                                 </div>
                                 <div class="post-info">
                                     <header class="entry-header">
-                                        <div class="entry-meta"><span class="post-author"><span
-                                                    class="post-by">Đăng bởi:</span> admin</span><span
-                                                class="post-date">{{ $item->created_at }}</span></div>
-                                        <h2 class="post-title"><a href="{{ route('blog.detail', ['id'=>$item->id]) }}">{{ $item->title }}</a></h2>
+                                        <div class="entry-meta">
+                                            <span  class="post-date">{{ $item->created_at }}</span>
+                                        </div>
+                                        <h2 class="post-title">
+                                            <a href="{{ route('blog.detail', ['id'=>$item->id]) }}">{{ $item->title }}</a>
+                                        </h2>
                                     </header>
                                     <div class="post-content">
-                                        <p> {!! \Illuminate\Support\Str::limit($item->content,20, $end='...') !!} </p>
+                                        <p class="intro">{{ strip_tags($item->content) }}</p>
                                     </div>
                                     <a href="{{ route('blog.detail', ['id'=>$item->id]) }}" class="btn btn-read-more btn-style-2">Đọc tiếp</a>
                                 </div>
