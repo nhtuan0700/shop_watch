@@ -24,12 +24,12 @@
 
   <div class="login-box w-50">
     <div class="login-logo">
-      <a href="#"><b>Admin</b></a>
+      <a href="#"><b>Trang quản trị</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Please login to continue!</p>
+        <p class="login-box-msg">Đăng nhập để tiếp tục</p>
 
         <form action="{{ route('admin.login') }}" method="post">
           @csrf
@@ -49,7 +49,7 @@
             @enderror
           </div>
           <div class="input-group mb-3">
-            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password"
+            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Mật khẩu"
               name="password">
 
             <div class="input-group-append">
@@ -66,13 +66,10 @@
           <div class="form-group form-check d-flex justify-content-between">
             <div>
               <input type="checkbox" class="form-check-input" id="remember" name="remember">
-              <label class="form-check-label" for="remember">Remember me</label>
+              <label class="form-check-label" for="remember">Nhớ tài khoản</label>
             </div>
-            <p class="mb-1">
-              <a href="#">Forgot Password?</a>
-            </p>
           </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-primary">Đăng nhập</button>
         </form>
 
       </div>

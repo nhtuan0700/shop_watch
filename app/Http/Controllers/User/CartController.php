@@ -23,7 +23,7 @@ class CartController extends Controller
         $id_color = $request->id_color;
         $name_color = Color::find($id_color)->name;
         $cartItem = Cart::content()->where('id', $product->id)->where('options.id_color', $id_color)->first();
-        $qty = $request->qty;
+        $qty = intval($request->qty);
         if ($qty > $product->getQty($id_color)) {
             return back()->with('alert-fail', 'Sản phẩm vượt quá số lượt cho phép!');
         }
@@ -52,6 +52,8 @@ class CartController extends Controller
     
             foreach($data as $item) {
                 $cartItem = Cart::content()->where('rowId', $item['rowId'])->first();
+                
+                $item['qty'] = intval($item['qty']);
                 if ($item['qty'] > $cartItem->model->getQty($cartItem->options->id_color)) {
                     session()->flash('alert-fail', 'Sản phẩm vượt quá số lượt cho phép!');
                     return response()->json(['message' => 'Cập nhật giỏ hàng thất bại!'], 404);
